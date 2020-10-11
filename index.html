@@ -2,34 +2,17 @@
 layout: default
 ---
 
-<div class="hero"> 
-  <img src="/images/avatar.jpg"/>
-  <h1>Hi. Introduce yourself.</h1>
-  <p>Introduce yourself.</p>
-  <div style="clear:both;"></div>
-</div>
+<div class="posts">
+  {% for post in site.posts %}
+    <article class="post">
 
-<div class="articles"> 
-  <h2><a href="/blog">Blog</a></h2>
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-  <div class="article">
-    <!-- <img src="assets/img/article1.jpg"/> -->
-    <h3>Article Title</h3>
-    <p>Article description text. Article description text. Article description text. Article description text. Article description text. Article description text. Article description text.</p>
-    </p>
-  </div>
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
 
-  <div class="article">
-    <!-- <img src="assets/img/article2.jpg"/> -->
-    <h3>Article Title</h3>
-    <p>Article description text. Article description text. Article description text. Article description text. Article description text. Article description text. Article description text.</p>
-    </p>
-  </div>
-
-  <div class="article">
-    <!-- <img src="assets/img/article3.jpg"/> -->
-    <h3>Article Title</h3>
-    <p>Article description text. Article description text. Article description text. Article description text. Article description text. Article description text. Article description text.</p>
-    </p>
-  </div>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
 </div>
